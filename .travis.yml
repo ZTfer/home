@@ -15,12 +15,14 @@ script:
 - hexo generate
 deploy:
   provider: pages
+  strategy: git
+  edge: true
   local_dir: blog/public
   repo: rime/rime.github.io
   target_branch: master
   keep_history: false
   fqdn: rime.im
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
+  cleanup: false
+  token: $GITHUB_TOKEN
   on:
     branch: master
